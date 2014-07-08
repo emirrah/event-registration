@@ -1,0 +1,7 @@
+%h2 Create New Event
+
+= simple_form_for @event do |event|
+  = event.text_field :event_name
+  = event.button :submit, :method => :create
+
+= link_to 'Back', events_path

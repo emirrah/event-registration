@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  occupied: false
+  table_id: 
+  guest_id: 
+
+two:
+  occupied: false
+  table_id: 
+  guest_id: 

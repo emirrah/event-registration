@@ -1,0 +1,16 @@
+%h3 EVENTS
+
+= link_to "Add an Event", new_event_path
+%br
+%br
+
+%table
+  %thead
+    %tr
+      %th EVENT NAME
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td
+          = link_to "#{event.event_name}", event_path(event)
+        %td

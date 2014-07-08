@@ -1,0 +1,16 @@
+%h3 EVENTS
+
+= link_to "Back to Event", new_event_path
+%br
+%br
+
+%table
+  %thead
+    %tr
+      %th GUEST NAME
+  %tbody
+    - @guests.each do |guest|
+      %tr
+        %td
+          = link_to "#{guest.name}", guest_path(guest)
+        %td

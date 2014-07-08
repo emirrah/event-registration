@@ -1,0 +1,22 @@
+%h2
+  = @event.event_name
+
+%h3 List of Tables:
+%table
+  %thead
+    %tr
+      %th Table Name
+      - 
+      %th Seat 1
+      %th Seat 2
+      %th Seat 3
+      %th Seat 4
+      %th Seat 5
+      %th Seat 6
+  %tbody
+  - @event.tables.each do |table|
+    %tr
+      %td= table.table_number
+
+%br
+= link_to 'Back to Events', events_path

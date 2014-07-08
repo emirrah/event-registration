@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  max_seats: 1
+  table_number: MyString
+  event_id: 
+
+two:
+  max_seats: 1
+  table_number: MyString
+  event_id: 

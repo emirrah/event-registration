@@ -1,0 +1,14 @@
+%h3 EVENTS TABLES
+
+%table
+  %thead
+    %tr
+      %th Table Number
+      %th Max Seats
+  %tbody
+    - @tables.each do |table|
+      %tr
+        %td
+          = table.table_number
+        %td
+          = table.max_seats
