@@ -1,0 +1,28 @@
+%h2
+  Tables
+
+%h3 List of Tables:
+%table
+  %thead
+    %tr
+      %th Table Name -
+      %th Max Seats -
+      %th Occupied -
+      %th Unoccupied
+  %tbody
+  - @event.tables.each do |table|
+    %tr
+      %td
+        = table.table_number
+      %td
+        = table.max_seats
+      %td
+        = table.seats.where(:occupied => true).count
+      %td
+        = table.max_seats - table.seats.where(:occupied => true).count
+      %td
+        /= link_to 'Reserve Seats Now', new_table_seat_path(table)
+
+%br
+%br
+= link_to 'Back to Events', events_path

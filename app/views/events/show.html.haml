@@ -1,22 +1,29 @@
 %h2
-  = @event.event_name
+  = "Event: #{@event.event_name}"
 
 %h3 List of Tables:
 %table
   %thead
     %tr
-      %th Table Name
-      - 
-      %th Seat 1
-      %th Seat 2
-      %th Seat 3
-      %th Seat 4
-      %th Seat 5
-      %th Seat 6
+      %th Table_Name
+      %th Max_Seats
+      %th Occupied
+      %th Unoccupied
   %tbody
   - @event.tables.each do |table|
     %tr
-      %td= table.table_number
+      %td
+        = table.table_number
+      %td
+        = table.max_seats
+      %td
+        = table.seats.where(:occupied => true).count
+      %td
+        = table.seats.where(:occupied => false).count
 
+%br
+%br
+= link_to 'Reserve Seats Now', event_guests_path(@event)
+%br
 %br
 = link_to 'Back to Events', events_path

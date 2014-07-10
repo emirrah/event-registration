@@ -4,6 +4,20 @@ class PermittedParams < Struct.new(:params)
   end
 
   def event_attributes
-    [:event_name]
+    [
+      :event_name,
+      :num_of_tables,
+      :max_seats
+    ]
+  end
+
+  def table
+    params.require(:table).permit(*table_attributes)
+  end
+
+  def table_attributes
+    [
+      :max_seats
+    ]
   end
 end

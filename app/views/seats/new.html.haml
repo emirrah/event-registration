@@ -1,0 +1,5 @@
+%h3 Reserve Seats Now
+
+= simple_form_for @seat do |seat|
+  = seat.input :num_of_seats, collection: 5..30
+  = seat.button :submit, :method => :create

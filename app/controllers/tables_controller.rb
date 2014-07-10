@@ -1,11 +1,15 @@
-
 class TablesController < ApplicationController
 
   def create
     @table = Table.new(permitted_params.table)
 
     if @table.save
-      redirect_to tables_path
+      i = 0
+      while i < @table.max_seats do
+        Seat.create(:occupied => false, :table => @table)
+      end
+
+      redirect_to events_path
     else
       render 'new'
     end
@@ -17,7 +21,6 @@ class TablesController < ApplicationController
 
   def new
     @table = Table.new
-    # head :created
   end
 
   def show

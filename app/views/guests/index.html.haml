@@ -1,8 +1,4 @@
-%h3 EVENTS
-
-= link_to "Back to Event", new_event_path
-%br
-%br
+%h3 Reserve Seat(s) for an Event
 
 %table
   %thead
@@ -14,3 +10,7 @@
         %td
           = link_to "#{guest.name}", guest_path(guest)
         %td
+
+%br
+%br
+= link_to "Back to Events", events_path

@@ -8,9 +8,11 @@
   %thead
     %tr
       %th EVENT NAME
+      %th Number of Tables
   %tbody
     - @events.each do |event|
       %tr
         %td
           = link_to "#{event.event_name}", event_path(event)
         %td
+          = event.tables.size
