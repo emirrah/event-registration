@@ -1,5 +1,6 @@
 class GuestsController < ApplicationController
   def index
+    @event = Event.find(params[:event_id])
     @guests = Guest.where(:event_id => params[:event_id])
   end
 

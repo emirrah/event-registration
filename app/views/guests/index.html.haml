@@ -13,7 +13,9 @@
             = link_to "#{guest.name}", event_guest_path(guest.event_id, guest.id)
           %td
             = guest.seats.size
-
+%br
+%br
+= link_to "Reserve Seats", new_event_guest_path(@event)
 %br
 %br
 = link_to "Back to Events", events_path
