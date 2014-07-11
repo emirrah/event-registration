@@ -20,4 +20,15 @@ class PermittedParams < Struct.new(:params)
       :max_seats
     ]
   end
+
+  def guest
+    params.require(:guest).permit(*guest_attributes)
+  end
+
+  def guest_attributes
+    [
+      :name,
+      :num_of_seats
+    ]
+  end
 end

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709015829) do
+ActiveRecord::Schema.define(version: 20140710015719) do
 
   create_table "events", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "event_name"
-    t.integer  "num_of_tables"
-    t.integer  "max_seats"
+    t.integer  "num_of_tables", default: 20
+    t.integer  "max_seats",     default: 8
   end
 
   create_table "guests", force: true do |t|
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140709015829) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "num_of_seats"
+    t.string   "name"
   end
 
   add_index "guests", ["event_id"], name: "index_guests_on_event_id"

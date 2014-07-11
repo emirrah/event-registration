@@ -1,0 +1,14 @@
+%h2 Event Registration
+
+%h4
+  = "Name: #{@guest.name}"
+  %br
+  = "Event Attending: #{@guest.event.event_name}"
+  %br
+  = "Reserved Seat(s): #{@guest.seats.size}"
+  %br
+  %br
+  = link_to "Add More Seats", edit_event_guest_path(@guest.event_id, @guest.id)
+  / %ul
+  / - @tables.each do |t|
+  /   %li= t.table_number

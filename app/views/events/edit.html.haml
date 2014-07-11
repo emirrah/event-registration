@@ -1,0 +1,11 @@
+%h2= "Edit #{@event.event_name} Event"
+
+= simple_form_for @event do |event|
+  = event.input :event_name
+  = event.input :num_of_tables, :input_html => { min: 1 }
+  = event.input :max_seats, :input_html => { min: 1 }
+  = event.button :submit, :method => :update
+
+%br
+%br
+= link_to 'Back', event_path(@event)
