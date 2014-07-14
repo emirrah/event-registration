@@ -20,6 +20,8 @@
         = table.seats.where(:occupied => true).count
       %td
         = table.seats.where(:occupied => false).count
+      %td
+        = link_to "Remove", event_table_path(table.event_id, table.id), :method => :patch, data: { confirm: 'Are you sure you want to remove this table?' }
 
 %br
 %br

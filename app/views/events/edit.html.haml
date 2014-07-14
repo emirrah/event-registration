@@ -1,9 +1,9 @@
-%h2= "Edit #{@event.event_name} Event"
+%h2= "Add Table(s) or Seat(s) #{@event.event_name} Event"
 
 = simple_form_for @event do |event|
   = event.input :event_name
-  = event.input :num_of_tables, :input_html => { min: 1 }
-  = event.input :max_seats, :input_html => { min: 1 }
+  = event.input :num_of_tables, :input_html => { min: 0 }
+  = event.input :max_seats, :input_html => { min: 0 }
   = event.button :submit, :method => :update
 
 %br

@@ -26,4 +26,18 @@ class TablesController < ApplicationController
   def show
     @table = Table.find(params[:id])
   end
+
+  def update
+    @table = Table.find(params[:id])
+    old_event = @table.event_id
+
+    puts "TABLE SEATS >>> #{@table.seats.where(:occupied => true).size}"
+
+    if @table.seats.where(:occupied => true).size <= 0
+      @table.destroy
+      @table.save
+    end
+
+    redirect_to event_path(old_event)
+  end
 end

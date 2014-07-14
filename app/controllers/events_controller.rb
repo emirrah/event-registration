@@ -59,7 +59,7 @@ class EventsController < ApplicationController
           j += 1
         end
       end
-      redirect_to events_path
+      redirect_to event_path(@event)
     end
   end
 end
