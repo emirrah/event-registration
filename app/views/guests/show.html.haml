@@ -1,14 +1,26 @@
 %h2 Event Registration
 
-%h4
-  = "Name: #{@guest.name}"
-  %br
-  = "Event Attending: #{@guest.event.event_name}"
-  %br
-  = "Reserved Seat(s): #{@guest.seats.size}"
-  %br
-  %br
-  = link_to "Add More Seats", edit_event_guest_path(@guest.event_id, @guest.id)
-  / %ul
-  / - @tables.each do |t|
-  /   %li= t.table_number
+= "Name: #{@guest.name}"
+%br
+= "Event Attending: #{@guest.event.event_name}"
+%br
+%br
+
+%table
+  %thead
+    %tr
+      %th Reserved Seat(s)
+      %th Action
+  %tbody
+  - @guest.seats.each do |seat|
+    %tr
+      %td
+        = seat.id
+      %td
+        = link_to "Cancel", event_table_seat_path(@guest.event.id, seat.table_id, seat.id), :method => :patch, data: { confirm: 'Are you sure you want to cancel this seat?' }
+%br
+%br
+= link_to "Add More Seats", edit_event_guest_path(@guest.event_id, @guest.id)
+%br
+%br
+= link_to "Back to Guests", event_guests_path(@guest.event_id)

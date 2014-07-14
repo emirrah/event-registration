@@ -17,4 +17,17 @@ class SeatsController < ApplicationController
       render 'new'
     end
   end
+
+  def update
+    @seat = Seat.find(params[:id])
+    old_guest = @seat.guest_id
+
+    if @seat
+      @seat.occupied = false
+      @seat.guest_id = nil
+      @seat.save
+
+      redirect_to event_guest_path(params[:event_id], old_guest)
+    end
+  end
 end
