@@ -7,7 +7,8 @@ class PermittedParams < Struct.new(:params)
     [
       :event_name,
       :num_of_tables,
-      :max_seats
+      :max_seats,
+      :date
     ]
   end
 

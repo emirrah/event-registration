@@ -4,6 +4,7 @@
   = event.input :event_name
   = event.input :num_of_tables, :input_html => { min: 1 }
   = event.input :max_seats, :input_html => { min: 2 }
+  = event.input :date
   = event.button :submit, :method => :create
 
 = link_to 'Back', events_path
