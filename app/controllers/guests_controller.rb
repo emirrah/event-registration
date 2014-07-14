@@ -68,17 +68,13 @@ class GuestsController < ApplicationController
   def update
     @guest = Guest.find(params[:id])
 
-    puts "guest >> #{@guest.as_json}\n\n"
-
-    puts "seat size >>> #{@guest.seats.size}\n"
-
     if @guest.update(permitted_params.guest)
       tables = Table.where(:event_id => params[:event_id])
       assigned = 0
       tables.each do |t|
-        if assigned < @guest.num_of_seats
-          seats = Seat.where(:occupied => false, :table_id => t.id)
-          seats.each do |s|
+        seats = Seat.where(:occupied => false, :table_id => t.id)
+        seats.each do |s|
+          if assigned < @guest.num_of_seats
             s.occupied = true
             s.guest_id = @guest.id
             s.table_id = t.id
