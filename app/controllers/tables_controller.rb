@@ -31,8 +31,6 @@ class TablesController < ApplicationController
     @table = Table.find(params[:id])
     old_event = @table.event_id
 
-    puts "TABLE SEATS >>> #{@table.seats.where(:occupied => true).size}"
-
     if @table.seats.where(:occupied => true).size <= 0
       @table.destroy
       @table.save

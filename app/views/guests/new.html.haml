@@ -5,7 +5,7 @@
 - if @available_seats > 0
   = simple_form_for @guest, :url => event_guests_path do |guest|
     = guest.input :name
-    = guest.input :num_of_seats, :collection => 1..@available_seats, :input_html => { value: 1 }
+    = guest.input :num_of_seats, :collection => 1..@available_seats
     = guest.button :submit, :method => :create
 - else
   %h4 There are no longer available seats for this event

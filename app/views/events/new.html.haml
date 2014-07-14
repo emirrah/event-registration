@@ -2,8 +2,8 @@
 
 = simple_form_for @event do |event|
   = event.input :event_name
-  = event.input :num_of_tables, collection: 2..(@event.num_of_tables), :input_html => { value: 2 }
-  = event.input :max_seats, collection: 2..(@event.max_seats), :input_html => { value: 2 }
+  = event.input :num_of_tables, :input_html => { min: 1 }
+  = event.input :max_seats, :input_html => { min: 2 }
   = event.button :submit, :method => :create
 
 = link_to 'Back', events_path

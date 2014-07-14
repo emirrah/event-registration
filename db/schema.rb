@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20140710015719) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "event_name"
-    t.integer  "num_of_tables", default: 20
-    t.integer  "max_seats",     default: 8
+    t.integer  "num_of_tables"
+    t.integer  "max_seats"
   end
 
   create_table "guests", force: true do |t|

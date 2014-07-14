@@ -12,12 +12,14 @@
       %th Reserved Seat(s)
       %th Action
   %tbody
+  - i = 0
   - @guest.seats.each do |seat|
     %tr
       %td
-        = seat.id
+        = "#{i = i + 1}"
       %td
         = link_to "Cancel", event_table_seat_path(@guest.event.id, seat.table_id, seat.id), :method => :patch, data: { confirm: 'Are you sure you want to cancel this seat?' }
+%br
 %br
 %br
 = link_to "Add More Seats", edit_event_guest_path(@guest.event_id, @guest.id)
